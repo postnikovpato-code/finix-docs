@@ -18,6 +18,11 @@
 <style>
   /* В этих плитках не числа, а слова: общий кегль 28px их не вмещает. */
   .tile b{font-size:clamp(18px,3.4vw,24px);overflow-wrap:anywhere}
+  /* В общем стиле последняя колонка таблицы — часы: без переносов и по содержимому.
+     Здесь в ней текст, поэтому правило снимается, иначе страница едет вбок. */
+  .est th:last-child,.est td:last-child{text-align:left;white-space:normal;width:auto}
+  .est td:first-child{width:30%;min-width:9ch}
+  .est td:first-child .t{margin-bottom:0}
 </style>
 </head>
 <body>
