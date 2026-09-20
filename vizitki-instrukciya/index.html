@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FINIX — как пользоваться визитками</title>
+<meta name="description" content="Инструкция: как завести визитку сотрудника, опубликовать, снять, скачать QR-код и смотреть статистику.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="FINIX — как пользоваться визитками">
+<meta property="og:description" content="Как завести визитку сотрудника, опубликовать, снять, скачать QR-код и смотреть статистику.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="backlink" href="../">← Все документы</a>
+    <div class="eyebrow">FINIX · инструкция</div>
+    <h1>Как пользоваться визитками</h1>
+    <p>У каждого сотрудника своя страница на сайте: фото, ФИО, должность и контакты,
+       на которые можно нажать. Визитки заводятся в админке, а открываются только
+       по ссылке или QR-коду — на сайте ссылок на них нет, в поиске они не появляются.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="summary">
+    <div class="tile accent"><span>Адрес визитки</span><b>finix.ru/card/…</b></div>
+    <div class="tile"><span>Кто заводит</span><b>Администратор</b></div>
+    <div class="tile"><span>Время на визитку</span><b>2 минуты</b></div>
+  </div>
+
+  <section class="part" id="zavesti">
+    <div class="part-head">
+      <h2>1. Завести визитку</h2>
+      <p class="lead">Раздел «Визитки» в админке. Он виден только администратору.</p>
+    </div>
+
+    <ol class="questions">
+      <li>
+        <span class="t">Нажмите «Создать»</span>
+        <div class="d">
+          <p>Заполните фамилию, имя и должность, загрузите фото — это обязательные поля.
+            Отчество и контакты заполняются по желанию: незаполненный контакт на визитке
+            просто не показывается.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Проверьте, как получилось</span>
+        <div class="d">
+          <p>Нажмите «Сохранить черновик», затем «Предпросмотр» — откроется страница визитки.
+            Пока визитка в черновике, посторонний по ссылке увидит «Визитка не найдена».</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Нажмите «Опубликовать»</span>
+        <div class="d">
+          <p>С этого момента визитка открывается по своей ссылке и QR-коду.</p>
+        </div>
+      </li>
+    </ol>
+
+    <table class="est">
+      <thead>
+        <tr><th scope="col">Поле</th><th scope="col">Что учесть</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="t">Адрес визитки</span></td>
+          <td><span class="d">Стоит в правой колонке. При создании там уже шесть случайных знаков,
+            например <span class="mono">k7mqp3</span> — такой адрес не подобрать, и я советую его
+            оставить. Можно вписать свой, например <span class="mono">ek</span>, но понятный адрес
+            легко угадывается, и визитку смогут открыть посторонние.
+            <b>После первого сохранения адрес не меняется</b> — он зашит в QR-код.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">Фото</span></td>
+          <td><span class="d">Квадратное, на тёмном фоне, лицо по центру: на визитке оно
+            обрезается в круг от центра. Подходят JPEG, PNG и WebP.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">Телефон</span></td>
+          <td><span class="d">Российский номер в любой записи: <span class="mono">8 900 900-90-90</span>,
+            <span class="mono">+7 (900) 900 90 90</span>. На визитке он будет выглядеть как
+            <span class="mono">+7(900)900-90-90</span>, а нажатие начнёт звонок.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">Telegram</span></td>
+          <td><span class="d">Имя пользователя: <span class="mono">ignatov_ia</span>,
+            <span class="mono">@ignatov_ia</span> или ссылка <span class="mono">t.me/ignatov_ia</span> —
+            лишнее админка уберёт сама.</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="part" id="snyat">
+    <div class="part-head">
+      <h2>2. Снять, удалить, вернуть</h2>
+      <p class="lead">Сотрудник ушёл или визитку удалили по ошибке.</p>
+    </div>
+
+    <ol class="questions">
+      <li>
+        <span class="t">Сотрудник ушёл — «Снять с публикации»</span>
+        <div class="d">
+          <p>Визитка перестаёт открываться сразу же: и по ссылке, и по QR-коду люди увидят
+            «Визитка не найдена». Сама запись остаётся в админке — если сотрудник вернётся,
+            достаточно снова нажать «Опубликовать».</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Удалили по ошибке — «Корзина»</span>
+        <div class="d">
+          <p>Кнопка «Корзина» над списком визиток. Откройте визитку и нажмите «Восстановить»:
+            адрес и QR-код останутся прежними, напечатанные визитки не сломаются.</p>
+          <p><b>В окне восстановления поставьте галочку «Восстановить как опубликованную версию».</b>
+            Без неё визитка вернётся черновиком и по ссылке по-прежнему будет «Визитка не найдена».
+            Если забыли — просто нажмите «Опубликовать» после восстановления.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Удалить навсегда</span>
+        <div class="d">
+          <p>Из корзины визитку можно удалить окончательно. Тогда её адрес освобождается:
+            при желании его можно вписать вручную в новую визитку, и старый QR-код снова
+            заработает.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="part" id="qr">
+    <div class="part-head">
+      <h2>3. QR-код</h2>
+      <p class="lead">После первого сохранения в правой колонке появляются ссылка на визитку
+        и две кнопки.</p>
+    </div>
+
+    <table class="est">
+      <thead>
+        <tr><th scope="col">Кнопка</th><th scope="col">Для чего</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="t">Скачать QR-код PNG</span></td>
+          <td><span class="d">Картинка для мессенджеров, почты и презентаций.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">Скачать QR-код SVG</span></td>
+          <td><span class="d">Для типографии: печатается любого размера без потери качества —
+            от визитной карточки до стенда.</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="lead">Ссылка и код начинают работать после публикации визитки. Файл называется
+      <span class="mono">finix-card-адрес</span>.</p>
+  </section>
+
+  <section class="part" id="metrika">
+    <div class="part-head">
+      <h2>4. Что видно в Яндекс Метрике</h2>
+      <p class="lead">Визитки считает тот же счётчик, что и сайт, причём с первой секунды:
+        визит по QR-коду короткий, ждать нельзя.</p>
+    </div>
+
+    <p class="lead">Посещения конкретной визитки смотрите в отчёте с условием «адрес страницы
+      содержит» и адресом визитки. Чтобы увидеть все визитки сразу, поставьте условие
+      «адрес страницы содержит <span class="mono">/card/</span>».</p>
+
+    <table class="est">
+      <thead>
+        <tr><th scope="col">Событие</th><th scope="col">Когда срабатывает</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="mono">phone_click</span></td><td><span class="d">Нажали на телефон</span></td></tr>
+        <tr><td><span class="mono">email_click</span></td><td><span class="d">Нажали на почту</span></td></tr>
+        <tr><td><span class="mono">telegram_click</span></td><td><span class="d">Нажали на Telegram</span></td></tr>
+        <tr><td><span class="mono">vcard_save</span></td><td><span class="d">Нажали «Сохранить в контакты»</span></td></tr>
+      </tbody>
+    </table>
+
+    <p class="lead">Цели по этим событиям заводятся в кабинете Метрики так же, как остальные цели
+      сайта. Первые три события бывают и на основном сайте — например, нажатие на телефон в шапке.
+      Чтобы считать только визитки, добавьте в цель условие с адресом
+      <span class="mono">/card/</span>.</p>
+  </section>
+
+  <section class="part" id="faq">
+    <div class="part-head">
+      <h2>Частые вопросы</h2>
+    </div>
+
+    <ol class="questions">
+      <li>
+        <span class="t">Найдут ли визитку в поиске?</span>
+        <div class="d">
+          <p>Нет. Визитки закрыты от поисковых систем, их нет в карте сайта и на сайт с них
+            ничего не ссылается. Получить список всех визиток со стороны тоже нельзя.
+            Единственный способ открыть визитку — ссылка или QR-код.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Можно ли поменять адрес уже созданной визитки?</span>
+        <div class="d">
+          <p>Нет, и это сделано намеренно: адрес напечатан на визитных карточках и в QR-коде.
+            Если адрес не нравится — заведите новую визитку, а старую удалите.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Что увидит человек, если визитку сняли?</span>
+        <div class="d">
+          <p>Страницу «Визитка не найдена» в оформлении сайта, с логотипом и ссылкой на главную.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Сохранится ли контакт на любой телефон?</span>
+        <div class="d">
+          <p>Кнопка «Сохранить в контакты» добавляет в телефон карточку с фото, ФИО, должностью
+            и контактами. Работает на iPhone и на Android. Если визитку открыли внутри мессенджера
+            и контакт не сохранился, откройте ссылку в обычном браузере.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Сколько визиток можно завести?</span>
+        <div class="d">
+          <p>Сколько угодно. Новый сотрудник — две минуты: заполнить поля, загрузить фото,
+            опубликовать и скачать QR-код.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Нужно ли что-то делать с cookie и согласием?</span>
+        <div class="d">
+          <p>Нет. На визитках плашки про cookie нет, статистика собирается сразу — по вашему
+            решению. Если юрист попросит это изменить, скажите, поправлю.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <footer class="foot">
+    <p>Если что-то работает не так, как здесь описано, напишите мне: разберусь и поправлю.</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
