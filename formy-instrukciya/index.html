@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FINIX — как настраивать поля формы заявки</title>
+<meta name="description" content="Инструкция: как убрать или вернуть поля в формах заявки на сайте, не привлекая разработчика.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="FINIX — как настраивать поля формы заявки">
+<meta property="og:description" content="Как убрать или вернуть поля в формах заявки на сайте, не привлекая разработчика.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  /* В этих плитках не числа, а слова: общий кегль 28px их не вмещает. */
+  .tile b{font-size:clamp(16px,2.2vw,22px);overflow-wrap:anywhere}
+  /* В общем стиле последняя колонка таблицы — часы: без переносов и по содержимому.
+     Здесь в ней текст, поэтому правило снимается, иначе страница едет вбок. */
+  .est th:last-child,.est td:last-child{text-align:left;white-space:normal;width:auto}
+  .est td:first-child{width:30%;min-width:9ch}
+  .est td:first-child .t{margin-bottom:0}
+  /* Снимки экрана: светлые картинки админки на чёрном фоне выглядят вырвиглазно
+     без рамки, поэтому у них подложка и скруглённый край, как у плиток. */
+  .shot{margin:24px 0 0}
+  .shot img{
+    display:block;width:100%;height:auto;
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);
+  }
+  .shot figcaption{margin-top:10px;font-size:14px;color:var(--ink-faint)}
+  .shots-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:24px}
+  .shots-2 .shot{margin:0}
+  @media (max-width:640px){.shots-2{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="backlink" href="../">← Все документы</a>
+    <div class="eyebrow">FINIX · инструкция</div>
+    <h1>Поля формы заявки</h1>
+    <p>Формы на сайте упрощены: посетитель оставляет имя и телефон. Какие ещё поля показывать —
+       теперь решаете вы сами в админке, галочками, без моего участия. Убрали поле сегодня,
+       вернули через месяц: ничего не удаляется и не ломается.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="summary">
+    <div class="tile accent"><span>Где настраивается</span><b>Админка → Форма заявки</b></div>
+    <div class="tile"><span>Когда видно на сайте</span><b>Сразу после «Сохранить»</b></div>
+    <div class="tile"><span>Нужен ли разработчик</span><b>Нет</b></div>
+  </div>
+
+  <section class="part" id="kak-rabotaet">
+    <div class="part-head">
+      <h2>1. Как это устроено</h2>
+      <p class="lead">На сайте три формы. Они выглядят одинаково, но открываются из разных мест
+        и по-разному называются.</p>
+    </div>
+
+    <table class="est">
+      <thead>
+        <tr><th scope="col">Форма</th><th scope="col">Откуда открывается</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="t">Получите условия по вашему платежу</span></td>
+          <td><span class="d">Кнопка «Получить условия» на первом экране и в блоке внизу
+            страницы.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">Оставьте заявку</span></td>
+          <td><span class="d">Кнопка «Оставить заявку» в шапке сайта, в том числе в меню
+            на телефоне.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">Задайте вопрос специалисту</span></td>
+          <td><span class="d">Кнопка «Задать вопрос» внизу страницы.</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="lead">У каждой формы свой набор галочек, и они не влияют друг на друга. Можно
+      оставить короткой форму с первого экрана, а в «Задайте вопрос» вернуть поле вопроса —
+      это нормальный случай, а не исключение.</p>
+
+    <div class="shots-2">
+      <figure class="shot">
+        <img src="img/forma-korotkaya.webp" alt="Форма «Получите условия»: имя, телефон и согласие" width="738" height="438" loading="lazy">
+        <figcaption>Так форма выглядит сейчас: имя, телефон, согласие.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/forma-polnaya.webp" alt="Та же форма с подзаголовком, названием компании, email, комментарием и кнопкой «Прикрепить документы»" width="738" height="654" loading="lazy">
+        <figcaption>Та же форма, когда включены все галочки.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="part" id="gde-nastroit">
+    <div class="part-head">
+      <h2>2. Где настроить</h2>
+      <p class="lead">В админке слева выберите раздел «Форма заявки». Внутри — три блока,
+        по одному на каждую форму.</p>
+    </div>
+
+    <figure class="shot">
+      <img src="img/admin-razdel.webp" alt="Раздел «Форма заявки» в админке: три блока с галочками — «Получите условия», «Оставьте заявку», «Задайте вопрос специалисту»" width="1184" height="1160" loading="lazy">
+      <figcaption>Раздел «Форма заявки»: три блока, в каждом свои галочки.</figcaption>
+    </figure>
+
+    <ol class="questions">
+      <li>
+        <span class="t">Поставьте или снимите галочки</span>
+        <div class="d">
+          <p>Галочка стоит — поле показывается посетителю. Галочка снята — поле спрятано.
+            Ничего при этом не удаляется: поставите обратно, и поле вернётся таким же,
+            как было.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Нажмите «Сохранить»</span>
+        <div class="d">
+          <p>Кнопка вверху справа. Изменения видны на сайте сразу — обновите страницу
+            и откройте форму, чтобы проверить.</p>
+        </div>
+      </li>
+    </ol>
+
+    <figure class="shot">
+      <img src="img/admin-gruppa.webp" alt="Блок настроек формы «Получите условия»: галочки подзаголовка, названия компании, email, комментария и прикрепления документов" width="1184" height="348" loading="lazy">
+      <figcaption>Один блок целиком: пять галочек и подсказки под ними.</figcaption>
+    </figure>
+  </section>
+
+  <section class="part" id="chto-za-galochki">
+    <div class="part-head">
+      <h2>3. Что означает каждая галочка</h2>
+      <p class="lead">Набор одинаковый у всех трёх форм.</p>
+    </div>
+
+    <table class="est">
+      <thead>
+        <tr><th scope="col">Галочка</th><th scope="col">Что показывает</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="t">Подзаголовок под заголовком</span></td>
+          <td><span class="d">Строка-пояснение под названием формы. Её текст написан прямо
+            под галочкой, чтобы было понятно, что именно вы включаете. Сейчас подзаголовок
+            оставлен только у формы «Оставьте заявку»: у остальных он звал прикрепить инвойс
+            и рассказать о платеже, то есть к полям, которых больше нет.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">Название компании</span></td>
+          <td><span class="d">Поле рядом с именем. Заполнять его посетителю необязательно.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">Email</span></td>
+          <td><span class="d">Поле рядом с телефоном. <b>Если оно показано, посетитель обязан
+            его заполнить</b> — как и было раньше. Спрятали — заявка приходит без почты,
+            и это нормально.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">Комментарий</span></td>
+          <td><span class="d">Многострочное поле внизу. В форме «Задайте вопрос специалисту»
+            оно называется «Ваш вопрос» и обязательно к заполнению, пока показано.
+            Спрятали — форма отправляется без него.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">Прикрепить документы</span></td>
+          <td><span class="d">Строка со скрепкой: посетитель прикладывает инвойс или договор.
+            Файлы приходят вместе с заявкой.</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="lead"><b>Имя, телефон и согласие не выключаются.</b> Без имени и телефона заявка
+      бесполезна — менеджеру не к кому обращаться, а согласие на обработку данных требует закон.
+      Поэтому галочек у них нет.</p>
+  </section>
+
+  <section class="part" id="primery">
+    <div class="part-head">
+      <h2>4. Частые случаи</h2>
+    </div>
+
+    <ol class="questions">
+      <li>
+        <span class="t">Хочу вернуть почту, чтобы высылать расчёты письмом</span>
+        <div class="d">
+          <p>Блок нужной формы → галочка «Email» → «Сохранить». Поле встанет рядом с телефоном,
+            и заполнить его будет обязательно.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Клиенты присылают инвойсы в переписке, хочу принимать их сразу</span>
+        <div class="d">
+          <p>Форма «Получите условия» → галочки «Прикрепить документы» и «Комментарий».
+            Файлы придут вместе с заявкой, их видно в карточке заявки в админке.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Слишком много заявок без сути, хочу понимать запрос заранее</span>
+        <div class="d">
+          <p>Форма «Задайте вопрос специалисту» → галочка «Ваш вопрос». Поле станет обязательным,
+            и заявка придёт уже с описанием задачи.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Передумали — хочу как было</span>
+        <div class="d">
+          <p>Снимите галочки обратно и сохраните. Поля спрячутся, форма снова станет короткой.
+            Так можно сколько угодно раз.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="part" id="faq">
+    <div class="part-head">
+      <h2>Частые вопросы</h2>
+    </div>
+
+    <ol class="questions">
+      <li>
+        <span class="t">Что будет с уже полученными заявками?</span>
+        <div class="d">
+          <p>Ничего. Старые заявки остаются в админке как есть, со всеми заполненными полями.
+            Галочки меняют только то, что видит посетитель на сайте.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">А в Bitrix24 заявка дойдёт, если в ней нет почты или компании?</span>
+        <div class="d">
+          <p>Да. В сделку уезжает то, что человек заполнил; пустые поля просто не заполняются.
+            То же самое в письме-оповещении: вместо пустого значения стоит прочерк.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Правка сразу видна посетителям?</span>
+        <div class="d">
+          <p>Да, сразу после «Сохранить». Если форма уже открыта у вас в браузере, обновите
+            страницу — она подтянет новые настройки.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Можно убрать телефон и оставить только почту?</span>
+        <div class="d">
+          <p>Нет. Телефон, имя и согласие всегда на месте. Если по делу нужно иначе — напишите,
+            обсудим: это уже доработка, а не галочка.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Форма стала ниже — это не сломает вёрстку?</span>
+        <div class="d">
+          <p>Нет. Форма рассчитана на любой набор полей: если соседнего поля нет, оставшееся
+            занимает всю ширину. Проверено на компьютере, планшете и телефоне.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <footer class="foot">
+    <p>Если что-то работает не так, как здесь описано, напишите мне: разберусь и поправлю.</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
