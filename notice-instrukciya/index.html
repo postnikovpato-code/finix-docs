@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FINIX — как работает ссылка на уведомление о реестре</title>
+<meta name="description" content="Инструкция: как устроена ссылка «Состоим в реестре…» на сайте и как загрузить или обновить документ в админке.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="FINIX — как работает ссылка на уведомление о реестре">
+<meta property="og:description" content="Как устроена ссылка «Состоим в реестре…» на сайте и как загрузить или обновить документ в админке.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .est th:last-child,.est td:last-child{text-align:left;white-space:normal;width:auto}
+  .est td:first-child{width:30%;min-width:9ch}
+  .est td:first-child .t{margin-bottom:0}
+  .shot{margin:24px 0 0}
+  .shot img{
+    display:block;width:100%;height:auto;
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2);
+  }
+  .shot figcaption{margin-top:10px;font-size:14px;color:var(--ink-faint)}
+  .shots-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:24px}
+  .shots-2 .shot{margin:0}
+  .shots-2 img{background:#0e0e0f;padding:20px 24px}
+  @media (max-width:640px){.shots-2{grid-template-columns:minmax(0,1fr)}}
+  .shot-dialog{max-width:320px;margin-inline:auto}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="backlink" href="../">← Все документы</a>
+    <div class="eyebrow">FINIX · инструкция</div>
+    <h1>Ссылка «Состоим в реестре…»</h1>
+    <p>На главной странице есть две фразы «Состоим в реестре регулятора» и «Состоим в реестре
+       поставщиков платёжных услуг». По нажатию открывается окно с уведомлением, а не новая
+       страница. Здесь — как это выглядит и что нужно сделать в админке, чтобы ссылка появилась.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="summary">
+    <div class="tile accent"><span>Где настраивается</span><b>Реквизиты компании</b></div>
+    <div class="tile"><span>Где показывается</span><b>Первый экран и «Комплаенс»</b></div>
+    <div class="tile"><span>Нужен ли разработчик</span><b>Нет</b></div>
+  </div>
+
+  <section class="part" id="kak-vyglyadit">
+    <div class="part-head">
+      <h2>1. Как это выглядит</h2>
+      <p class="lead">Фраза подчёркнута цветом кнопки в шапке. В покое и при наведении курсором
+        цвет чуть меняется — так понятно, что по фразе можно нажать.</p>
+    </div>
+
+    <div class="shots-2">
+      <figure class="shot">
+        <img src="img/ssylka-pokoy.webp" alt="Фраза «Состоим в реестре регулятора» на сайте в покое, подчёркнута оранжевым" width="276" height="78" loading="lazy">
+        <figcaption>В покое.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/ssylka-navedenie.webp" alt="Та же фраза при наведении курсора — цвет чуть приглушается" width="276" height="78" loading="lazy">
+        <figcaption>При наведении курсора.</figcaption>
+      </figure>
+    </div>
+
+    <p class="lead">По нажатию страница никуда не переходит — открывается окно с картинкой
+      документа и кнопкой «Скачать PDF».</p>
+
+    <figure class="shot shot-dialog">
+      <img src="img/okno.webp" alt="Окно с уведомлением Национального банка о включении ООО «ФИНИКС» в реестр, под документом — кнопка «Скачать PDF»" width="576" height="871" loading="lazy">
+      <figcaption>Окно закрывается крестиком, клавишей Esc или нажатием мимо документа.</figcaption>
+    </figure>
+  </section>
+
+  <section class="part" id="gde-zagruzit">
+    <div class="part-head">
+      <h2>2. Куда загрузить документ</h2>
+      <p class="lead">Раздел «Реквизиты компании» в админке, блок «Уведомление о включении
+        в реестр». Там два поля.</p>
+    </div>
+
+    <table class="est">
+      <thead>
+        <tr><th scope="col">Поле</th><th scope="col">Что туда идёт</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="t">Изображение листа</span></td>
+          <td><span class="d">Картинка самого документа — именно её видно в окне на сайте.
+            Подходят JPEG, PNG, WebP. <b>Без картинки ссылки на сайте не будет вовсе</b> —
+            фраза останется обычным текстом, без подчёркивания и без нажатия.</span></td>
+        </tr>
+        <tr>
+          <td><span class="t">PDF для скачивания</span></td>
+          <td><span class="d">Необязательное поле. Если файл загружен, под картинкой в окне
+            появляется «Скачать PDF» с оригиналом. Без него кнопки просто не будет,
+            остальное окно работает как обычно.</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="lead">Обновить документ — значит перезалить оба поля новыми файлами
+      и нажать «Сохранить». Правка видна на сайте сразу.</p>
+  </section>
+
+  <section class="part" id="faq">
+    <div class="part-head">
+      <h2>Частые вопросы</h2>
+    </div>
+
+    <ol class="questions">
+      <li>
+        <span class="t">Можно ли поменять сам текст ссылки?</span>
+        <div class="d">
+          <p>Да. Фраза — обычное поле CMS: «Прозрачность.» — в показателе первого экрана,
+            «Состоим в реестре регулятора» — соседнее поле «Текст ссылки на уведомление»
+            рядом с ним. Второй такой же — в блоке «Комплаенс», пункт «Легальная деятельность».
+            Если поле с текстом ссылки оставить пустым, фраза пропадёт, а остальной текст
+            останется.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Почему в окне картинка, а не сам PDF?</span>
+        <div class="d">
+          <p>На iPhone встроенный просмотр PDF работает нестабильно: иногда не открывается
+            вовсе, иногда вместо показа начинается скачивание. Картинка показывается всегда
+            одинаково, а кнопка «Скачать PDF» рядом даёт доступ к оригиналу для печати
+            или пересылки.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t">Один документ на обе фразы или два разных?</span>
+        <div class="d">
+          <p>Один. Обе фразы на странице открывают одно и то же окно с одним и тем же
+            документом из «Реквизитов компании».</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <footer class="foot">
+    <p>Если что-то работает не так, как здесь описано, напишите мне: разберусь и поправлю.</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
